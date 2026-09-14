@@ -1,0 +1,8 @@
+{
+  "name": "Undangan Diklat PASGRADA",
+  "description": "Web undangan resmi Pendidikan dan Pelatihan (Diklat) PASGRADA dengan konfirmasi kehadiran RSVP, e-undangan personal untuk screenshot di acara, dan notifikasi admin real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

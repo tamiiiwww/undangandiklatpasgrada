@@ -1,0 +1,30 @@
+[
+  {
+    "id": "rsvp-1789138897506-62kuv",
+    "name": "Kak Budi Santoso",
+    "angkatan": "Angkatan 2019",
+    "attendance": "hadir",
+    "ticketCode": "DIKLAT-2019-7102",
+    "notes": "Sukses untuk Diklat Paskibra!",
+    "createdAt": "2026-09-11T15:01:37.506Z",
+    "isReadByAdmin": false
+  },
+  {
+    "id": "paskib-sample-1",
+    "name": "Rian Prasetyo",
+    "angkatan": "Angkatan 2020",
+    "attendance": "hadir",
+    "ticketCode": "DIKLAT-2020-8492",
+    "createdAt": "2026-09-11T13:01:35.115Z",
+    "isReadByAdmin": true
+  },
+  {
+    "id": "paskib-sample-2",
+    "name": "Nur Annisa Fitri",
+    "angkatan": "Angkatan 2022",
+    "attendance": "hadir",
+    "ticketCode": "DIKLAT-2022-3105",
+    "createdAt": "2026-09-11T14:01:35.115Z",
+    "isReadByAdmin": false
+  }
+]

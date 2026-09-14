@@ -1,0 +1,401 @@
+<svg viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Text Paths for curved text -->
+    <path id="pathPasgrada" d="M 230,178 Q 500,42 770,178" fill="none" />
+    <path id="pathKartikaRibbon" d="M 232,710 Q 500,836 768,710" fill="none" />
+
+    <!-- Gold Facet Gradients for Star -->
+    <linearGradient id="starLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFF275" />
+      <stop offset="100%" stopColor="#EAB308" />
+    </linearGradient>
+    <linearGradient id="starDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#A16207" />
+      <stop offset="100%" stopColor="#713F12" />
+    </linearGradient>
+
+    <!-- Rice Grain Gradient -->
+    <linearGradient id="riceGrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FEF08A" />
+      <stop offset="50%" stopColor="#FACC15" />
+      <stop offset="100%" stopColor="#CA8A04" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Background Shield (Black with Solid Bright Yellow Contour Border) -->
+  <path
+    d="M 195,52 
+       Q 500,82 805,52 
+       C 810,95 822,122 842,146 
+       C 872,182 915,218 964,268 
+       C 948,455 898,625 772,804 
+       C 672,904 582,950 500,974 
+       C 418,950 328,904 228,804 
+       C 102,625 52,455 36,268 
+       C 85,218 128,182 158,146 
+       C 178,122 190,95 195,52 Z"
+    fill="#000000"
+    stroke="#FFE600"
+    strokeWidth="16"
+    strokeLinejoin="round"
+  />
+
+  
+  <!-- 2. Top Curved Text: PASGRADA (Direct High-Contrast Letters) -->
+  <g id="pasgrada-letters" font-family="Impact, 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="62" fill="#FFE600" stroke="#000000" stroke-width="3.5" stroke-linejoin="round" text-anchor="middle">
+    <text x="240.0" y="150.0" transform="rotate(-20.0 240.0 150.0)">P</text>
+    <text x="314.0" y="132.0" transform="rotate(-14.0 314.0 132.0)">A</text>
+    <text x="388.0" y="120.0" transform="rotate(-8.0 388.0 120.0)">S</text>
+    <text x="462.0" y="115.0" transform="rotate(-3.0 462.0 115.0)">G</text>
+    <text x="538.0" y="115.0" transform="rotate(3.0 538.0 115.0)">R</text>
+    <text x="612.0" y="120.0" transform="rotate(8.0 612.0 120.0)">A</text>
+    <text x="686.0" y="132.0" transform="rotate(14.0 686.0 132.0)">D</text>
+    <text x="760.0" y="150.0" transform="rotate(20.0 760.0 150.0)">A</text>
+  </g>
+
+  <!-- 3. Faceted 3D Gold Star -->
+  <g transform="translate(500, 186)">
+    <!-- Top Point -->
+    <polygon points="0,-48 0,0 -15,-11" fill="url(#starLight)" />
+    <polygon points="0,-48 0,0 15,-11" fill="url(#starDark)" />
+    <!-- Top-Right Point -->
+    <polygon points="46,-15 0,0 15,-11" fill="url(#starLight)" />
+    <polygon points="46,-15 0,0 13,13" fill="url(#starDark)" />
+    <!-- Bottom-Right Point -->
+    <polygon points="29,39 0,0 13,13" fill="url(#starLight)" />
+    <polygon points="29,39 0,0 0,15" fill="url(#starDark)" />
+    <!-- Bottom-Left Point -->
+    <polygon points="-29,39 0,0 0,15" fill="url(#starDark)" />
+    <polygon points="-29,39 0,0 -13,13" fill="url(#starLight)" />
+    <!-- Top-Left Point -->
+    <polygon points="-46,-15 0,0 -13,13" fill="url(#starDark)" />
+    <polygon points="-46,-15 0,0 -15,-11" fill="url(#starLight)" />
+    <!-- Crisp Contour -->
+    <polygon points="0,-48 15,-11 46,-15 13,13 29,39 0,15 -29,39 -13,13 -46,-15 -15,-11" fill="none" stroke="#854D0E" strokeWidth="1.5" />
+  </g>
+
+  <!-- 4. Left Wreath: PADI (Golden Rice Stalk) -->
+  <g>
+    <!-- Rice Stem -->
+    <path d="M 480,670 C 265,640 215,480 230,375 C 240,315 270,255 335,215" fill="none" stroke="#CA8A04" strokeWidth="5.5" strokeLinecap="round" />
+
+    <!-- Outer Grains -->
+    <g fill="url(#riceGrainGrad)" stroke="#78350F" strokeWidth="1.2">
+      <ellipse cx="325" cy="225" rx="16" ry="7.5" transform="rotate(-32 325 225)" />
+      <ellipse cx="300" cy="245" rx="18" ry="8.5" transform="rotate(-42 300 245)" />
+      <ellipse cx="278" cy="272" rx="19" ry="9" transform="rotate(-52 278 272)" />
+      <ellipse cx="260" cy="305" rx="20" ry="9.5" transform="rotate(-62 260 305)" />
+      <ellipse cx="246" cy="342" rx="21" ry="10" transform="rotate(-72 246 342)" />
+      <ellipse cx="236" cy="382" rx="21" ry="10" transform="rotate(-82 236 382)" />
+      <ellipse cx="232" cy="425" rx="21" ry="10" transform="rotate(-92 232 425)" />
+      <ellipse cx="234" cy="468" rx="21" ry="10" transform="rotate(-102 234 468)" />
+      <ellipse cx="242" cy="510" rx="21" ry="10" transform="rotate(-112 242 510)" />
+      <ellipse cx="258" cy="552" rx="21" ry="10" transform="rotate(-122 258 552)" />
+      <ellipse cx="280" cy="590" rx="21" ry="10" transform="rotate(-132 280 590)" />
+      <ellipse cx="310" cy="624" rx="20" ry="10" transform="rotate(-142 310 624)" />
+      <ellipse cx="348" cy="650" rx="20" ry="9.5" transform="rotate(-152 348 650)" />
+      <ellipse cx="392" cy="666" rx="19" ry="9" transform="rotate(-162 392 666)" />
+      <ellipse cx="438" cy="672" rx="17" ry="8.5" transform="rotate(-172 438 672)" />
+
+      <!-- Inner Grains Tier -->
+      <ellipse cx="294" cy="275" rx="15" ry="7" transform="rotate(-48 294 275)" fill="#FEF08A" />
+      <ellipse cx="274" cy="320" rx="16" ry="7.5" transform="rotate(-68 274 320)" fill="#FEF08A" />
+      <ellipse cx="262" cy="370" rx="16" ry="8" transform="rotate(-82 262 370)" fill="#FEF08A" />
+      <ellipse cx="258" cy="422" rx="16" ry="8" transform="rotate(-95 258 422)" fill="#FEF08A" />
+      <ellipse cx="264" cy="475" rx="16" ry="8" transform="rotate(-108 264 475)" fill="#FEF08A" />
+      <ellipse cx="280" cy="525" rx="16" ry="8" transform="rotate(-122 280 525)" fill="#FEF08A" />
+      <ellipse cx="308" cy="572" rx="16" ry="8" transform="rotate(-138 308 572)" fill="#FEF08A" />
+      <ellipse cx="346" cy="610" rx="15" ry="7.5" transform="rotate(-152 346 610)" fill="#FEF08A" />
+    </g>
+  </g>
+
+  <!-- 5. Right Wreath: KAPAS (Cotton Blossoms with Green Sepals) -->
+  <g>
+    <!-- Cotton Green Stem extending up close to the Star -->
+    <path d="M 520,670 C 735,640 785,480 770,375 C 758,310 720,245 565,210" fill="none" stroke="#15803D" strokeWidth="5.5" strokeLinecap="round" />
+
+    <!-- 9 Cotton Blossoms -->
+    <!-- Boll 1: Near Star -->
+    <g transform="translate(565, 212)">
+      <polygon points="-8,4 0,-12 8,4 0,14" fill="#15803D" />
+      <circle cx="-6" cy="-2" r="8.5" fill="#FFFFFF" />
+      <circle cx="6" cy="-2" r="8.5" fill="#FFFFFF" />
+      <circle cx="0" cy="-8" r="8.5" fill="#FFFFFF" />
+      <circle cx="-5" cy="6" r="7.5" fill="#F1F5F9" />
+      <circle cx="5" cy="6" r="7.5" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 2 -->
+    <g transform="translate(635, 240)">
+      <polygon points="-10,4 0,-13 10,4 0,15" fill="#15803D" />
+      <circle cx="-7" cy="-2" r="9.5" fill="#FFFFFF" />
+      <circle cx="7" cy="-2" r="9.5" fill="#FFFFFF" />
+      <circle cx="0" cy="-9" r="9.5" fill="#FFFFFF" />
+      <circle cx="-5" cy="7" r="8.5" fill="#F1F5F9" />
+      <circle cx="5" cy="7" r="8.5" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 3 -->
+    <g transform="translate(688, 285)">
+      <polygon points="-11,5 0,-14 11,5 0,16" fill="#15803D" />
+      <circle cx="-8" cy="-3" r="10.5" fill="#FFFFFF" />
+      <circle cx="8" cy="-3" r="10.5" fill="#FFFFFF" />
+      <circle cx="0" cy="-10" r="10.5" fill="#FFFFFF" />
+      <circle cx="-6" cy="8" r="9.5" fill="#F1F5F9" />
+      <circle cx="6" cy="8" r="9.5" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 4 -->
+    <g transform="translate(730, 342)">
+      <polygon points="-12,5 0,-14 12,5 0,16" fill="#15803D" />
+      <circle cx="-9" cy="-3" r="11.5" fill="#FFFFFF" />
+      <circle cx="9" cy="-3" r="11.5" fill="#FFFFFF" />
+      <circle cx="0" cy="-11" r="11.5" fill="#FFFFFF" />
+      <circle cx="-7" cy="8" r="10.5" fill="#F1F5F9" />
+      <circle cx="7" cy="8" r="10.5" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 5 -->
+    <g transform="translate(758, 408)">
+      <polygon points="-12,5 0,-15 12,5 0,17" fill="#15803D" />
+      <circle cx="-9.5" cy="-3" r="12" fill="#FFFFFF" />
+      <circle cx="9.5" cy="-3" r="12" fill="#FFFFFF" />
+      <circle cx="0" cy="-11.5" r="12" fill="#FFFFFF" />
+      <circle cx="-7" cy="8.5" r="11" fill="#F1F5F9" />
+      <circle cx="7" cy="8.5" r="11" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 6 -->
+    <g transform="translate(766, 478)">
+      <polygon points="-12,5 0,-15 12,5 0,17" fill="#15803D" />
+      <circle cx="-9.5" cy="-3" r="12" fill="#FFFFFF" />
+      <circle cx="9.5" cy="-3" r="12" fill="#FFFFFF" />
+      <circle cx="0" cy="-11.5" r="12" fill="#FFFFFF" />
+      <circle cx="-7" cy="8.5" r="11" fill="#F1F5F9" />
+      <circle cx="7" cy="8.5" r="11" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 7 -->
+    <g transform="translate(748, 548)">
+      <polygon points="-12,5 0,-14 12,5 0,16" fill="#15803D" />
+      <circle cx="-9" cy="-3" r="11.5" fill="#FFFFFF" />
+      <circle cx="9" cy="-3" r="11.5" fill="#FFFFFF" />
+      <circle cx="0" cy="-11" r="11.5" fill="#FFFFFF" />
+      <circle cx="-7" cy="8" r="10.5" fill="#F1F5F9" />
+      <circle cx="7" cy="8" r="10.5" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 8 -->
+    <g transform="translate(710, 612)">
+      <polygon points="-11,5 0,-14 11,5 0,16" fill="#15803D" />
+      <circle cx="-8" cy="-3" r="11" fill="#FFFFFF" />
+      <circle cx="8" cy="-3" r="11" fill="#FFFFFF" />
+      <circle cx="0" cy="-10" r="11" fill="#FFFFFF" />
+      <circle cx="-6" cy="8" r="10" fill="#F1F5F9" />
+      <circle cx="6" cy="8" r="10" fill="#F1F5F9" />
+    </g>
+
+    <!-- Boll 9 -->
+    <g transform="translate(650, 660)">
+      <polygon points="-11,5 0,-13 11,5 0,15" fill="#15803D" />
+      <circle cx="-8" cy="-3" r="10" fill="#FFFFFF" />
+      <circle cx="8" cy="-3" r="10" fill="#FFFFFF" />
+      <circle cx="0" cy="-9.5" r="10" fill="#FFFFFF" />
+      <circle cx="-6" cy="7.5" r="9" fill="#F1F5F9" />
+      <circle cx="6" cy="7.5" r="9" fill="#F1F5F9" />
+    </g>
+  </g>
+
+  <!-- 6. Golden Tie Ribbon Knot at Base of Wreaths -->
+  <g transform="translate(500, 680)">
+    <circle cx="0" cy="0" r="15" fill="#FFE600" stroke="#854D0E" strokeWidth="2.5" />
+    <!-- Left Loop -->
+    <path d="M -15,0 C -45,-18 -75,-6 -85,12 C -70,22 -40,12 -15,5 Z" fill="#FFE600" stroke="#854D0E" strokeWidth="2" />
+    <!-- Right Loop -->
+    <path d="M 15,0 C 45,-18 75,-6 85,12 C 70,22 40,12 15,5 Z" fill="#FFE600" stroke="#854D0E" strokeWidth="2" />
+    <!-- Left Tail Swirl -->
+    <path d="M -10,12 C -24,35 -40,55 -50,60 C -42,62 -20,44 -5,17 Z" fill="#FACC15" stroke="#854D0E" strokeWidth="1.8" />
+    <!-- Right Tail Swirl -->
+    <path d="M 10,12 C 24,35 40,55 50,60 C 42,62 20,44 5,17 Z" fill="#FACC15" stroke="#854D0E" strokeWidth="1.8" />
+  </g>
+
+  <!-- 7. Golden Wings (Sayap Garuda) -->
+  <g fill="#FFE600" stroke="#78350F" strokeWidth="2" strokeLinejoin="round">
+    <!-- Left Wing -->
+    <g>
+      <path d="M 390,560 C 350,510 330,370 348,305 C 368,348 375,445 405,535 Z" fill="#FEF08A" />
+      <path d="M 398,565 C 365,525 352,400 372,335 C 385,380 392,470 415,545 Z" fill="#FDE047" />
+      <path d="M 406,572 C 382,535 372,435 392,375 C 405,415 408,495 424,555 Z" fill="#FACC15" />
+      <path d="M 415,580 C 398,550 392,475 408,420 C 418,455 422,515 432,565 Z" fill="#EAB308" />
+      <path d="M 422,588 C 412,565 408,515 420,465 C 428,495 430,535 438,575 Z" fill="#CA8A04" />
+    </g>
+
+    <!-- Right Wing -->
+    <g>
+      <path d="M 610,560 C 650,510 670,370 652,305 C 632,348 625,445 595,535 Z" fill="#FEF08A" />
+      <path d="M 602,565 C 635,525 648,400 628,335 C 615,380 608,470 585,545 Z" fill="#FDE047" />
+      <path d="M 594,572 C 618,535 628,435 608,375 C 595,415 592,495 576,555 Z" fill="#FACC15" />
+      <path d="M 585,580 C 602,550 608,475 592,420 C 582,455 578,515 568,565 Z" fill="#EAB308" />
+      <path d="M 578,588 C 588,565 592,515 580,465 C 572,495 570,535 562,575 Z" fill="#CA8A04" />
+    </g>
+  </g>
+
+  <!-- 8. The Torch (Obor) with Red Flame & White Stylized Wave -->
+  <g>
+    <!-- Handle -->
+    <path d="M 428,370 L 438,370 L 432,475 L 422,475 Z" fill="#94A3B8" stroke="#1E293B" strokeWidth="2" />
+    <!-- Cup / Bowl -->
+    <path d="M 412,365 L 452,365 L 442,390 L 424,390 Z" fill="#CBD5E1" stroke="#0F172A" strokeWidth="2.2" />
+
+    <!-- Red Billowing Flame Swirling Horizontally to the Right -->
+    <path
+      d="M 418,362 
+         C 405,340 410,314 435,310 
+         C 426,325 438,332 452,320 
+         C 442,338 465,332 485,318 
+         C 515,296 542,314 524,342 
+         C 512,352 492,346 480,354 
+         C 468,362 460,365 450,365 Z"
+      fill="#E51E2B"
+      stroke="#991B1B"
+      strokeWidth="2.5"
+    />
+
+    <!-- White Stylized Flame Ribbon / Wave Highlight -->
+    <path
+      d="M 428,358 
+         C 434,340 452,330 472,328 
+         C 488,326 508,318 518,336 
+         C 506,346 488,340 476,344 
+         C 460,350 448,356 438,360 Z"
+      fill="#FFFFFF"
+      opacity="0.95"
+    />
+  </g>
+
+  <!-- 9. Big Stylized Yellow Numeral "2" -->
+  <g>
+    <path
+      d="M 444,420 
+         C 444,366 538,366 546,420 
+         C 550,468 474,520 436,568 
+         L 430,596 
+         L 572,596 
+         L 572,570 
+         L 486,570 
+         C 514,535 582,480 578,420 
+         C 570,338 420,338 412,420 Z"
+      fill="#FFE600"
+      stroke="#000000"
+      strokeWidth="5"
+      strokeLinejoin="round"
+    />
+  </g>
+
+  <!-- 10. Cadet / Soldier Profile Inside Numeral "2" -->
+  <g>
+    <!-- Cap (Topi Pet Kuning) -->
+    <path
+      d="M 470,366 
+         C 470,348 484,340 504,340 
+         C 524,340 532,352 528,370 
+         C 520,374 480,374 470,366 Z"
+      fill="#FFE600"
+      stroke="#000000"
+      strokeWidth="2"
+    />
+    <!-- Face Profile (White Silhouette) -->
+    <path
+      d="M 478,370 
+         C 496,372 522,370 528,376 
+         C 530,390 520,404 504,412 
+         C 490,412 480,398 478,370 Z"
+      fill="#FFFFFF"
+      stroke="#000000"
+      strokeWidth="2"
+    />
+    <!-- Uniform Collar (Yellow) -->
+    <path
+      d="M 474,412 
+         L 522,412 
+         C 530,440 524,464 510,480 
+         L 470,480 
+         C 466,455 466,434 474,412 Z"
+      fill="#FFE600"
+      stroke="#000000"
+      strokeWidth="2"
+    />
+    <!-- White Folder / Map / Agenda with Black Outline -->
+    <polygon points="522,418 545,424 539,474 516,470" fill="#FFFFFF" stroke="#000000" strokeWidth="2.5" />
+    <line x1="522" y1="432" x2="542" y2="438" stroke="#000000" strokeWidth="1.5" />
+  </g>
+
+  <!-- 11. Bottom Red Curved Banner: KARTIKA EKA PAKSI -->
+  <g>
+    <!-- Left Swallowtail Ribbon End -->
+    <path
+      d="M 195,642 
+         L 115,675 
+         L 145,710 
+         L 115,745 
+         L 188,712 Z"
+      fill="#E51E2B"
+      stroke="#FFE600"
+      strokeWidth="3.5"
+      strokeLinejoin="round"
+    />
+    <!-- Left Fold Shading -->
+    <polygon points="188,712 195,642 210,685" fill="#7F1D1D" />
+
+    <!-- Right Swallowtail Ribbon End -->
+    <path
+      d="M 805,642 
+         L 885,675 
+         L 855,710 
+         L 885,745 
+         L 812,712 Z"
+      fill="#E51E2B"
+      stroke="#FFE600"
+      strokeWidth="3.5"
+      strokeLinejoin="round"
+    />
+    <!-- Right Fold Shading -->
+    <polygon points="812,712 805,642 790,685" fill="#7F1D1D" />
+
+    <!-- Main Curved Ribbon Body -->
+    <path
+      d="M 195,642 
+         Q 500,775 805,642 
+         L 812,712 
+         Q 500,845 188,712 Z"
+      fill="#E51E2B"
+      stroke="#FFE600"
+      strokeWidth="4"
+      strokeLinejoin="round"
+    />
+
+    <!-- Ribbon Yellow Inner Trim Accents -->
+    <path d="M 200,648 Q 500,781 800,648" fill="none" stroke="#FEF08A" strokeWidth="1.5" />
+    <path d="M 194,706 Q 500,839 806,706" fill="none" stroke="#FEF08A" strokeWidth="1.5" />
+
+    
+    <!-- Text: KARTIKA EKA PAKSI (Direct High-Contrast Letters) -->
+    <g id="kartika-letters" font-family="Impact, 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" text-anchor="middle">
+      <text x="260.0" y="696.0" transform="rotate(17.0 260.0 696.0)">K</text>
+      <text x="288.0" y="721.0" transform="rotate(15.0 288.0 721.0)">A</text>
+      <text x="318.0" y="743.0" transform="rotate(13.0 318.0 743.0)">R</text>
+      <text x="348.0" y="762.0" transform="rotate(11.0 348.0 762.0)">T</text>
+      <text x="376.0" y="778.0" transform="rotate(8.5 376.0 778.0)">I</text>
+      <text x="404.0" y="790.0" transform="rotate(6.5 404.0 790.0)">K</text>
+      <text x="435.0" y="799.0" transform="rotate(4.0 435.0 799.0)">A</text>
+      <text x="496.0" y="806.0" transform="rotate(-0.0 496.0 806.0)">E</text>
+      <text x="526.0" y="804.0" transform="rotate(-2.5 526.0 804.0)">K</text>
+      <text x="556.0" y="799.0" transform="rotate(-5.0 556.0 799.0)">A</text>
+      <text x="616.0" y="779.0" transform="rotate(-9.0 616.0 779.0)">P</text>
+      <text x="646.0" y="763.0" transform="rotate(-11.5 646.0 763.0)">A</text>
+      <text x="676.0" y="744.0" transform="rotate(-13.5 676.0 744.0)">K</text>
+      <text x="705.0" y="722.0" transform="rotate(-15.5 705.0 722.0)">S</text>
+      <text x="734.0" y="697.0" transform="rotate(-17.5 734.0 697.0)">I</text>
+    </g>
+  </g>
+</svg>
