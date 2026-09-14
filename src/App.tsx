@@ -26,18 +26,51 @@ export default function App() {
         const parsed = JSON.parse(saved);
         if (
           parsed.title === "PENDIDIKAN DAN PELATIHAN PASKIBRA" ||
-          parsed.title === "PENDIDIKAN DAN PELATIHAN PASGRADA"
+          parsed.title === "PENDIDIKAN DAN PELATIHAN PASGRADA" ||
+          parsed.title === "PENDIDIKAN & PELATIHAN"
         ) {
-          parsed.title = "PENDIDIKAN & PELATIHAN";
+          parsed.title = DEFAULT_EVENT_DETAILS.title;
         }
         if (
           parsed.subTitle === "Pasukan Pengibar Bendera Pusaka" ||
-          parsed.subTitle === "Pendidikan & Pelatihan (Diklat) Paskibra"
+          parsed.subTitle === "Pendidikan & Pelatihan (Diklat) Paskibra" ||
+          parsed.subTitle === "Calon Anggota & Pemantapan Purna PASGRADA"
         ) {
-          parsed.subTitle = "Calon Anggota & Pemantapan Purna PASGRADA";
+          parsed.subTitle = DEFAULT_EVENT_DETAILS.subTitle;
         }
-        if (typeof parsed.theme === "string" && parsed.theme.includes("Paskibra")) {
-          parsed.theme = parsed.theme.replace(/Paskibra/g, "PASGRADA").replace(/PASKIBRA/g, "PASGRADA");
+        if (
+          !parsed.theme ||
+          parsed.theme.includes("Membentuk Generasi") ||
+          parsed.theme.includes("Paskibra")
+        ) {
+          parsed.theme = DEFAULT_EVENT_DETAILS.theme;
+        }
+        if (
+          !parsed.date ||
+          parsed.date === "Sabtu – Minggu, 24 – 25 Oktober 2026"
+        ) {
+          parsed.date = DEFAULT_EVENT_DETAILS.date;
+        }
+        if (!parsed.time || parsed.time === "07.30 WIB s/d Selesai") {
+          parsed.time = DEFAULT_EVENT_DETAILS.time;
+        }
+        if (
+          !parsed.location ||
+          parsed.location === "Bumi Perkemahan & Aula Graha Wiyata"
+        ) {
+          parsed.location = DEFAULT_EVENT_DETAILS.location;
+        }
+        if (
+          !parsed.locationDetails ||
+          parsed.locationDetails === "Kompleks Pendidikan Utama, Jl. Veteran No. 45"
+        ) {
+          parsed.locationDetails = DEFAULT_EVENT_DETAILS.locationDetails;
+        }
+        if (
+          !parsed.dresscode ||
+          parsed.dresscode === "Pakaian Dinas Harian (PDH) / PDU / Bebas Rapi Bersepatu"
+        ) {
+          parsed.dresscode = DEFAULT_EVENT_DETAILS.dresscode;
         }
         if (typeof parsed.notes === "string" && parsed.notes.includes("Paskibra")) {
           parsed.notes = parsed.notes.replace(/Paskibra/g, "PASGRADA").replace(/PASKIBRA/g, "PASGRADA");

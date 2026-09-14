@@ -1,6 +1,5 @@
 import { Calendar, Clock, MapPin, Award, ChevronDown, Image as ImageIcon } from "lucide-react";
 import { EventDetails } from "../types";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 
 interface PosterSectionProps {
   event: EventDetails;
@@ -49,9 +48,6 @@ export function PosterSection({
                   <div className="bg-white" />
                 </div>
 
-                {/* Emblem */}
-                <PaskibraEmblem size={96} className="mb-4" customLogoUrl={event.customLogoUrl} />
-
                 {event.title && (
                   <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-black tracking-wide text-white uppercase font-serif">
                     {event.title}
@@ -64,7 +60,7 @@ export function PosterSection({
                 )}
 
                 {/* Elegant Quote / Theme */}
-                <div className="my-6 max-w-xl px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs sm:text-sm text-slate-300 italic">
+                <div className="my-6 max-w-xl px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs sm:text-sm text-slate-300 italic whitespace-pre-line text-center">
                   {event.theme}
                 </div>
 

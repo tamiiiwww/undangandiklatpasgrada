@@ -1,6 +1,6 @@
 {
-  "name": "Undangan Diklat PASGRADA",
-  "description": "Web undangan resmi Pendidikan dan Pelatihan (Diklat) PASGRADA dengan konfirmasi kehadiran RSVP, e-undangan personal untuk screenshot di acara, dan notifikasi admin real-time.",
+  "name": "Undangan Diklat & HUT PASGRADA",
+  "description": "Web undangan resmi Diklat Angkatan 12 sekaligus HUT PASGRADA ke-11 dengan konfirmasi kehadiran RSVP dan e-undangan personal.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
