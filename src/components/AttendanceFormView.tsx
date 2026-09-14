@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { ArrowLeft, Send, User, Award, MessageSquare, Check, Sparkles, AlertCircle } from "lucide-react";
-import { PaskibraEmblem } from "./PaskibraEmblem";
-import { RSVPItem } from "../types";
+import { ArrowLeft, Send, User, Award, Check, Sparkles, AlertCircle, MessageCircle } from "lucide-react";
+import { RSVPItem, EventDetails } from "../types";
 
 interface AttendanceFormViewProps {
   onBack: () => void;
   onSubmitSuccess: (rsvp: RSVPItem) => void;
   customLogoUrl?: string;
+  event?: EventDetails;
 }
 
 const COMMON_ANGKATAN = [
@@ -24,10 +24,10 @@ export function AttendanceFormView({
   onBack,
   onSubmitSuccess,
   customLogoUrl,
+  event,
 }: AttendanceFormViewProps) {
   const [name, setName] = useState("");
   const [angkatan, setAngkatan] = useState("");
-  const [notes, setNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -49,51 +49,38 @@ export function AttendanceFormView({
     setErrorMessage("");
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/rsvp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name.trim(),
-          angkatan: angkatan.trim(),
-          attendance: "hadir",
-          notes: notes.trim() || undefined,
-        }),
-      });
+    const ticketCode = `DIKLAT-${angkatan.replace(/\D/g, "") || "XX"}-${Math.floor(1000 + Math.random() * 9000)}`;
 
-      const data = await response.json();
-      if (data.success && data.data) {
-        onSubmitSuccess(data.data);
-      } else {
-        throw new Error(data.message || "Gagal menyimpan konfirmasi.");
-      }
-    } catch (err: any) {
-      // Standalone / Offline / Vercel & Netlify mode
-      const fallbackRsvp: RSVPItem = {
-        id: "rsvp-" + Date.now() + "-" + Math.random().toString(36).slice(2, 6),
-        name: name.trim(),
-        angkatan: angkatan.trim(),
-        attendance: "hadir",
-        ticketCode: `DIKLAT-${angkatan.replace(/\D/g, "") || "XX"}-${Math.floor(1000 + Math.random() * 9000)}`,
-        notes: notes.trim() || undefined,
-        createdAt: new Date().toISOString(),
-        isReadByAdmin: false,
-      };
+    const rsvpData: RSVPItem = {
+      id: "rsvp-" + Date.now() + "-" + Math.random().toString(36).slice(2, 6),
+      name: name.trim(),
+      angkatan: angkatan.trim(),
+      attendance: "hadir",
+      ticketCode,
+      createdAt: new Date().toISOString(),
+      isReadByAdmin: true,
+    };
 
-      try {
-        const existing = localStorage.getItem("paskib_rsvps");
-        const list: RSVPItem[] = existing ? JSON.parse(existing) : [];
-        localStorage.setItem("paskib_rsvps", JSON.stringify([fallbackRsvp, ...list]));
-      } catch {
-        // ignore
-      }
+    // Prepare WhatsApp message
+    const phone = (event?.adminWhatsApp || "6285648149206").replace(/\D/g, "");
+    const waText = encodeURIComponent(
+      `*KONFIRMASI KEHADIRAN DIKLAT & HUT PASGRADA*\n\n` +
+      `Halo Panitia PASGRADA! Saya mengonfirmasi akan HADIR pada kegiatan:\n\n` +
+      `👤 *Nama:* Kak ${name.trim()}\n` +
+      `🎖️ *Angkatan:* ${angkatan.trim()}\n` +
+      `🎫 *Kode Undangan:* ${ticketCode}\n` +
+      `📅 *Acara:* ${event?.title || "DIKLAT & HUT PASGRADA"}\n` +
+      `📍 *Lokasi:* ${event?.location || "SMAN 2 BANGKALAN"}\n\n` +
+      `Terima kasih! Salam PASGRADA!`
+    );
 
-      onSubmitSuccess(fallbackRsvp);
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Direct to WhatsApp
+    const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${waText}`;
+    window.open(waUrl, "_blank");
+
+    // Also transition to ticket view so user gets their personal pass card
+    onSubmitSuccess(rsvpData);
+    setIsSubmitting(false);
   };
 
   return (
@@ -113,9 +100,8 @@ export function AttendanceFormView({
         {/* Card Form */}
         <div className="rounded-2xl p-0.5 bg-gradient-to-b from-amber-500/50 via-red-600/40 to-slate-800 shadow-2xl">
           <div className="rounded-[15px] bg-slate-900 p-6 sm:p-8 border border-slate-800">
-            {/* Header with Emblem */}
+            {/* Header without Emblem */}
             <div className="flex flex-col items-center text-center mb-6">
-              <PaskibraEmblem size={64} className="mb-3" customLogoUrl={customLogoUrl} />
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-300 text-xs font-semibold mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                 Konfirmasi Siap Hadir
@@ -207,35 +193,12 @@ export function AttendanceFormView({
                 </div>
               </div>
 
-              {/* PESAN / CATATAN (OPSIONAL) */}
-              <div>
-                <label
-                  htmlFor="input-notes"
-                  className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5"
-                >
-                  Pesan / Doa untuk Adik-adik Diklat <span className="text-slate-500 font-normal">(Opsional)</span>
-                </label>
-                <div className="relative">
-                  <div className="absolute top-3 left-3.5 pointer-events-none text-slate-400">
-                    <MessageSquare className="w-4 h-4" />
-                  </div>
-                  <textarea
-                    id="input-notes"
-                    rows={3}
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Contoh: Semangat diklatnya adik-adik, semoga lancar dan makin kompak!"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm transition resize-none"
-                  />
-                </div>
-              </div>
-
-              {/* Notice regarding admin notification and card */}
+              {/* Notice regarding WhatsApp notification and card */}
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
                 <span className="text-amber-400 font-semibold">ℹ️ Informasi:</span> Saat Kakak menekan tombol kirim di bawah:
                 <ul className="list-disc list-inside mt-1 space-y-0.5 text-slate-300">
+                  <li>Konfirmasi kehadiran langsung dikirimkan ke WhatsApp Panitia (+62 856-4814-9206).</li>
                   <li>Kartu e-undangan resmi atas nama Kakak akan langsung ditampilkan untuk di-screenshot.</li>
-                  <li>Notifikasi konfirmasi kehadiran otomatis terkirim ke sistem admin panitia.</li>
                 </ul>
               </div>
 
@@ -244,17 +207,17 @@ export function AttendanceFormView({
                 id="btn-submit-attendance"
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-red-600 via-red-700 to-red-600 hover:from-red-500 hover:to-red-600 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-red-600/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-600 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-emerald-600/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Mengirim Konfirmasi...</span>
+                    <span>Membuka WhatsApp...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="w-4 h-4" />
-                    <span>Kirim Konfirmasi Kehadiran</span>
+                    <MessageCircle className="w-5 h-5" />
+                    <span>Kirim Konfirmasi ke WhatsApp Panitia</span>
                   </>
                 )}
               </button>

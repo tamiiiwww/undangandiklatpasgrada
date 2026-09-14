@@ -45,7 +45,7 @@ export function PassCardTicket({ rsvp, event, onBackToHome }: PassCardTicketProp
       `📍 *Lokasi:* ${event.location}\n\n` +
       `Sampai jumpa di lokasi acara! Salam PASGRADA!`
     );
-    const phone = event.adminWhatsApp.replace(/\D/g, "") || "6281234567890";
+    const phone = (event.adminWhatsApp || "6285648149206").replace(/\D/g, "") || "6285648149206";
     window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`, "_blank");
   };
 
@@ -66,7 +66,7 @@ export function PassCardTicket({ rsvp, event, onBackToHome }: PassCardTicketProp
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Konfirmasi Terkirim ke Admin</span>
+            <span>Terkonfirmasi via WhatsApp</span>
           </div>
         </div>
 

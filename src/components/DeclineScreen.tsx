@@ -1,36 +1,36 @@
 import React, { useState } from "react";
-import { Heart, ArrowLeft, Send, Sparkles } from "lucide-react";
+import { Heart, ArrowLeft, Send, Sparkles, MessageCircle } from "lucide-react";
 import { PaskibraEmblem } from "./PaskibraEmblem";
+import { EventDetails } from "../types";
 
 interface DeclineScreenProps {
   onBackToHome: () => void;
   customLogoUrl?: string;
+  event?: EventDetails;
 }
 
-export function DeclineScreen({ onBackToHome, customLogoUrl }: DeclineScreenProps) {
+export function DeclineScreen({ onBackToHome, customLogoUrl, event }: DeclineScreenProps) {
   const [senderName, setSenderName] = useState("");
   const [wishes, setWishes] = useState("");
   const [sentWishes, setSentWishes] = useState(false);
 
-  const handleSendGreeting = async (e: React.FormEvent) => {
+  const handleSendGreeting = (e: React.FormEvent) => {
     e.preventDefault();
     if (!senderName.trim()) return;
 
-    try {
-      await fetch("/api/rsvp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: senderName.trim(),
-          angkatan: "Purna / Tamu",
-          attendance: "tidak_hadir",
-          notes: wishes.trim() || undefined,
-        }),
-      });
-      setSentWishes(true);
-    } catch {
-      setSentWishes(true);
-    }
+    // Send directly via WhatsApp to +6285648149206
+    const phone = (event?.adminWhatsApp || "6285648149206").replace(/\D/g, "");
+    const waText = encodeURIComponent(
+      `*PESAN / DOA RESTU TAMU UNDANGAN PASGRADA*\n\n` +
+      `Halo Panitia PASGRADA, mohon maaf saya berhalangan hadir pada kegiatan ${event?.title || "DIKLAT & HUT PASGRADA"}.\n\n` +
+      `👤 *Dari:* Kak ${senderName.trim()}\n` +
+      `💬 *Pesan/Doa:* "${wishes.trim() || "Semoga kegiatan lancar dan sukses selalu!"}"\n\n` +
+      `Salam hangat untuk adik-adik dan seluruh panitia!`
+    );
+
+    const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${waText}`;
+    window.open(waUrl, "_blank");
+    setSentWishes(true);
   };
 
   return (
@@ -81,10 +81,10 @@ export function DeclineScreen({ onBackToHome, customLogoUrl }: DeclineScreenProp
                 <button
                   type="submit"
                   disabled={!senderName.trim()}
-                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold border border-emerald-600 transition disabled:opacity-50 cursor-pointer"
                 >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Kirimkan Pesan Doa Restu</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Kirimkan Pesan Doa Restu via WhatsApp</span>
                 </button>
               </form>
             ) : (

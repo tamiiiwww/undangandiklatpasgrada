@@ -72,6 +72,9 @@ export default function App() {
         ) {
           parsed.dresscode = DEFAULT_EVENT_DETAILS.dresscode;
         }
+        if (!parsed.adminWhatsApp || parsed.adminWhatsApp === "6281234567890") {
+          parsed.adminWhatsApp = "6285648149206";
+        }
         if (typeof parsed.notes === "string" && parsed.notes.includes("Paskibra")) {
           parsed.notes = parsed.notes.replace(/Paskibra/g, "PASGRADA").replace(/PASKIBRA/g, "PASGRADA");
         }
@@ -481,6 +484,7 @@ export default function App() {
 
         {currentView === "form_hadir" && (
           <AttendanceFormView
+            event={event}
             onBack={() => setCurrentView("home")}
             onSubmitSuccess={handleSubmitSuccess}
             customLogoUrl={event.customLogoUrl}
@@ -497,6 +501,7 @@ export default function App() {
 
         {currentView === "tidak_hadir" && (
           <DeclineScreen
+            event={event}
             onBackToHome={() => setCurrentView("home")}
             customLogoUrl={event.customLogoUrl}
           />
