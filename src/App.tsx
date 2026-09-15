@@ -71,6 +71,9 @@ export default function App() {
         ) {
           parsed.dresscode = DEFAULT_EVENT_DETAILS.dresscode;
         }
+        if (!parsed.time || parsed.time.includes("07.00")) {
+          parsed.time = DEFAULT_EVENT_DETAILS.time;
+        }
         if (!parsed.adminWhatsApp || parsed.adminWhatsApp === "6281234567890") {
           parsed.adminWhatsApp = "6285648149206";
         }

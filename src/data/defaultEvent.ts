@@ -5,7 +5,7 @@ export const DEFAULT_EVENT_DETAILS: EventDetails = {
   subTitle: "DIKLAT ANGKATAN 12 SEKALIGUS HUT PASGRADA YANG KE-11",
   theme: "\"Ditempa oleh disiplin, Dibentuk Menjadi Pemimpin\"\nOn the team, On the dream, GLORY!",
   date: "Sabtu, 19 Oktober 2026",
-  time: "07.00 WIB s/d Selesai",
+  time: "07.30 WIB s/d Selesai",
   location: "SMAN 2 BANGKALAN",
   locationDetails: "Lapangan upacara",
   dresscode: "Pakaian bebas tetapi tetap sopan",
