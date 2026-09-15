@@ -13,7 +13,6 @@ import { EditEventModal } from "./components/EditEventModal";
 import { AdminLoginModal } from "./components/AdminLoginModal";
 import { LiveToastNotification } from "./components/LiveToastNotification";
 import { soundManager } from "./utils/audio";
-import { PaskibraEmblem } from "./components/PaskibraEmblem";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<AppView>("home");
@@ -75,6 +74,7 @@ export default function App() {
         if (!parsed.adminWhatsApp || parsed.adminWhatsApp === "6281234567890") {
           parsed.adminWhatsApp = "6285648149206";
         }
+        parsed.customLogoUrl = "";
         if (typeof parsed.notes === "string" && parsed.notes.includes("Paskibra")) {
           parsed.notes = parsed.notes.replace(/Paskibra/g, "PASGRADA").replace(/PASKIBRA/g, "PASGRADA");
         }
@@ -512,8 +512,7 @@ export default function App() {
       <footer className="w-full py-8 px-4 border-t border-slate-800/80 bg-slate-950 text-center text-xs text-slate-400 print:hidden">
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-3">
           <div className="flex items-center gap-2">
-            <PaskibraEmblem size={32} customLogoUrl={event.customLogoUrl} />
-            <span className="font-bold text-slate-300 tracking-wider uppercase font-serif">
+            <span className="font-bold text-slate-300 tracking-wider uppercase font-serif text-sm">
               PASGRADA
             </span>
           </div>

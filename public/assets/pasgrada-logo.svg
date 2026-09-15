@@ -380,7 +380,7 @@
 
     
     <!-- Text: KARTIKA EKA PAKSI (Direct High-Contrast Letters) -->
-    <g id="kartika-letters" font-family="Impact, 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" text-anchor="middle">
+    <g id="kartika-letters" font-family="Impact, 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="34" fill="#FFE600" stroke="#000000" stroke-width="2" stroke-linejoin="round" text-anchor="middle">
       <text x="260.0" y="696.0" transform="rotate(17.0 260.0 696.0)">K</text>
       <text x="288.0" y="721.0" transform="rotate(15.0 288.0 721.0)">A</text>
       <text x="318.0" y="743.0" transform="rotate(13.0 318.0 743.0)">R</text>

@@ -11,7 +11,11 @@ export function PaskibraEmblem({
   size = 64,
   customLogoUrl,
 }: PaskibraEmblemProps) {
-  const logoSrc = customLogoUrl || "/assets/pasgrada-logo.svg";
+  if (!customLogoUrl) {
+    return null;
+  }
+
+  const logoSrc = customLogoUrl;
 
   return (
     <div

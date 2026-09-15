@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { X, Save, Upload, Sparkles, AlertCircle, Image as ImageIcon, RotateCcw } from "lucide-react";
 import { EventDetails } from "../types";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 import { compressImage } from "../utils/imageCompress";
 import { DEFAULT_EVENT_DETAILS } from "../data/defaultEvent";
 
@@ -17,24 +16,6 @@ export function EditEventModal({ isOpen, onClose, event, onSave }: EditEventModa
   const [isProcessingImage, setIsProcessingImage] = useState(false);
 
   if (!isOpen) return null;
-
-  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setIsProcessingImage(true);
-      try {
-        const compressed = await compressImage(file, 600, 0.85);
-        setFormData((prev) => ({
-          ...prev,
-          customLogoUrl: compressed,
-        }));
-      } catch (err) {
-        console.error("Error compressing logo:", err);
-      } finally {
-        setIsProcessingImage(false);
-      }
-    }
-  };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -90,49 +71,6 @@ export function EditEventModal({ isOpen, onClose, event, onSave }: EditEventModa
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-5 space-y-4">
-          {/* Logo / Emblem Management */}
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider">
-                Logo / Lambang PASGRADA
-              </label>
-              <span className="text-[11px] text-amber-400 font-medium">
-                {formData.customLogoUrl ? "Logo Kustom Aktif" : "Lambang Bawaan Aktif"}
-              </span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                <PaskibraEmblem size={44} customLogoUrl={formData.customLogoUrl} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-center gap-2">
-                  <label className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-700 hover:bg-red-600 text-white cursor-pointer transition shadow-sm">
-                    <Upload className="w-3.5 h-3.5" />
-                    <span>Unggah Logo Khusus</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleLogoUpload}
-                      className="hidden"
-                    />
-                  </label>
-                  {formData.customLogoUrl && (
-                    <button
-                      type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, customLogoUrl: "" }))}
-                      className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition"
-                    >
-                      Gunakan Lambang Bawaan
-                    </button>
-                  )}
-                </div>
-                <p className="text-[11px] text-slate-400 mt-1.5">
-                  Logo tampil di seluruh bagian aplikasi (Navbar, Poster, Formulir, Kartu Undangan, dan Footer).
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Upload Poster Image */}
           <div>
             <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">

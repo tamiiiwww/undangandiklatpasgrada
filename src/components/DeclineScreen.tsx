@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Heart, ArrowLeft, Send, Sparkles, MessageCircle } from "lucide-react";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 import { EventDetails } from "../types";
 
 interface DeclineScreenProps {
@@ -9,7 +8,7 @@ interface DeclineScreenProps {
   event?: EventDetails;
 }
 
-export function DeclineScreen({ onBackToHome, customLogoUrl, event }: DeclineScreenProps) {
+export function DeclineScreen({ onBackToHome, event }: DeclineScreenProps) {
   const [senderName, setSenderName] = useState("");
   const [wishes, setWishes] = useState("");
   const [sentWishes, setSentWishes] = useState(false);
@@ -39,8 +38,6 @@ export function DeclineScreen({ onBackToHome, customLogoUrl, event }: DeclineScr
         {/* Card with subtle red and warm gray styling */}
         <div className="rounded-3xl p-0.5 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-2xl">
           <div className="rounded-[23px] bg-slate-950 p-6 sm:p-10 text-center border border-slate-800">
-            <PaskibraEmblem size={70} className="mx-auto mb-4" customLogoUrl={customLogoUrl} />
-
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-xs font-medium mb-4">
               <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500/20" />
               Salam Hormat PASGRADA

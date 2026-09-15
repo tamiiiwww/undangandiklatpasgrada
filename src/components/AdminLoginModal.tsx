@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Lock, Eye, EyeOff, ShieldCheck, X, AlertCircle, KeyRound, Sparkles } from "lucide-react";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 
 interface AdminLoginModalProps {
   isOpen: boolean;
@@ -13,7 +12,6 @@ export function AdminLoginModal({
   isOpen,
   onClose,
   onLoginSuccess,
-  customLogoUrl,
 }: AdminLoginModalProps) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -81,10 +79,10 @@ export function AdminLoginModal({
         </button>
 
         <div className="p-6 sm:p-7">
-          {/* Header with Emblem */}
+          {/* Header */}
           <div className="flex flex-col items-center text-center mb-6">
-            <div className="mb-3 transform hover:scale-105 transition-transform">
-              <PaskibraEmblem size={68} customLogoUrl={customLogoUrl} />
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-3 text-amber-400">
+              <Lock className="w-6 h-6" />
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Lock className="w-3 h-3" />

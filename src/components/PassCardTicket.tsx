@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Camera, CheckCircle2, Share2, ArrowLeft, Calendar, MapPin, Award, Clock, QrCode, ShieldCheck, Sparkles, MessageCircle } from "lucide-react";
 import confetti from "canvas-confetti";
 import { RSVPItem, EventDetails } from "../types";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 import { soundManager } from "../utils/audio";
 
 interface PassCardTicketProps {
@@ -88,11 +87,6 @@ export function PassCardTicket({ rsvp, event, onBackToHome }: PassCardTicketProp
           className="relative rounded-3xl p-1 bg-gradient-to-b from-amber-400 via-red-600 to-amber-600 shadow-2xl overflow-hidden"
         >
           <div className="relative rounded-[22px] bg-slate-950 p-6 sm:p-8 text-white overflow-hidden border border-amber-500/30">
-            {/* Background watermarks & textures */}
-            <div className="absolute -right-12 -top-12 opacity-5 pointer-events-none">
-              <PaskibraEmblem size={260} customLogoUrl={event.customLogoUrl} />
-            </div>
-
             {/* Red & White Ribbon top */}
             <div className="absolute top-0 left-0 right-0 h-2 grid grid-cols-2">
               <div className="bg-red-600" />
@@ -101,16 +95,16 @@ export function PassCardTicket({ rsvp, event, onBackToHome }: PassCardTicketProp
 
             {/* Pass Header */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-5 mb-5 pt-2">
-              <div className="flex items-center gap-3">
-                <PaskibraEmblem size={54} customLogoUrl={event.customLogoUrl} />
-                <div>
-                  <h3 className="text-sm sm:text-base font-extrabold text-white uppercase tracking-wider font-serif">
-                    KARTU UNDANGAN RESMI
-                  </h3>
-                  <span className="text-[11px] text-red-400 font-medium block">
-                    {event.title || "Pendidikan & Pelatihan (Diklat)"}
-                  </span>
-                </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-amber-400 font-serif block mb-0.5">
+                  PASGRADA • SMAN 2 BANGKALAN
+                </span>
+                <h3 className="text-base sm:text-lg font-black text-white uppercase tracking-wider font-serif">
+                  KARTU UNDANGAN RESMI
+                </h3>
+                <span className="text-xs text-red-400 font-medium block">
+                  {event.title || "Pendidikan & Pelatihan (Diklat)"}
+                </span>
               </div>
 
               {/* Verified Badge */}

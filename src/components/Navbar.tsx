@@ -1,5 +1,4 @@
 import { Bell, Settings2, LogOut, ShieldAlert } from "lucide-react";
-import { PaskibraEmblem } from "./PaskibraEmblem";
 
 interface NavbarProps {
   onOpenAdmin: () => void;
@@ -31,7 +30,6 @@ export function Navbar({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo and Brand */}
         <div className="flex items-center gap-3">
-          <PaskibraEmblem size={44} customLogoUrl={customLogoUrl} />
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-sm sm:text-base tracking-wider text-slate-100 uppercase font-serif">

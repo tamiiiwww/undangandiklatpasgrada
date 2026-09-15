@@ -11,6 +11,7 @@ export const DEFAULT_EVENT_DETAILS: EventDetails = {
   dresscode: "Pakaian bebas tetapi tetap sopan",
   contactPerson: "Panitia Pelaksana PASGRADA",
   adminWhatsApp: "6285648149206",
+  customLogoUrl: "",
   posterImageUrl: "", // Can be filled or user can upload
   notes: "Kehadiran serta bimbingan Kakak Senior/Purna PASGRADA sangat dinantikan demi kelancaran dan suksesnya regenerasi adik-adik kita.",
   rsvpQuestion: "Apakah Kakak berkenan untuk hadir??",
